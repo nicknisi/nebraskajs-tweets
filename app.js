@@ -11,7 +11,8 @@ var express = require('express'),
 
 var app = express(),
     server = http.createServer(app),
-    io = SocketIO.listen(server);
+    io = SocketIO.listen(server),
+    keyword = 'nebraskajs';
 
 // configure socket.io
 io.configure(function () {
@@ -38,15 +39,6 @@ app.configure('development', function () {
 
 var twitter = new Twitter(twitterAuth);
 
-function getTwitterStream() {
-    twitter.stream('statuses/filter', {track: 'nebraskajs'}, function (stream) {
-        stream.on('data', function (data) {
-            console.log('new tweet');
-            io.sockets.emit('new_tweet', data);
-        });
-    });
-}
-
 function formatData(data) {
     return {
         tweet: data.text,
@@ -56,11 +48,43 @@ function formatData(data) {
     };
 }
 
+
+function getTwitterStream() {
+    twitter.stream('statuses/filter', {track: keyword}, function (stream) {
+        stream.on('data', function (data) {
+            console.log('new tweet');
+            io.sockets.emit('new_tweet', formatData(data));
+        });
+        stream.on('error', function (err) {
+            console.log('ERROR');
+            console.log(err);
+        });
+    });
+}
+
 app.get('/', function (req, res) {
     res.render('index');
 });
 
-// getTwitterStream();
+app.get('/:user', function (req, res) {
+    twitter.showUser(req.params.user, function (err, data) {
+        if (err || data.length === -1) {
+            res.send("Error finding user");
+        } else {
+            data = data[0];
+            res.render("user", {
+                userId: data.id,
+                name: data.name,
+                username: data.screen_name,
+                tweets: data.statuses_count,
+                location: data.location,
+                img: data.profile_image_url
+            });
+        }
+    });
+});
+
+getTwitterStream();
 
 server.listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));

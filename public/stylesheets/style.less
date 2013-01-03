@@ -1,8 +1,70 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding-top: 90px;
 }
 
-a {
-  color: #00B7FF;
+.hashtag {
+    color: lighten(#F00, 25%);
+}
+
+.logo {
+    float: left;
+    display: inline-block;
+    background-image: url('/images/logo-square.png');
+    width: 80px;
+    height: 80px;
+    background-size: 80px 80px;
+}
+
+.brand {
+    margin-top: 20px;
+    display: inline;
+    font-size: 2em;
+}
+
+.tweet-list {
+    background-color: #EFF0F1;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    .tweet {
+        margin-top: 0;
+        margin-bottom: 0;
+        border-top: 1px solid #F8F8F8;
+        border-bottom: 1px solid #B1AFB0;
+        background-color: #FFF;
+        .avatar {
+            width: 60px;
+            height: 60px;
+        }
+        .username {
+            font-weight: bold;
+            color: lighten(#00F, 25%);
+            font-size: 1em;
+        }
+        .text {
+            color: lighten(#000, 25%);
+            font-size: 0.8em;
+        }
+    }
+}
+
+.twitter-data {
+    h1 {
+    }
+    .avatar {
+        width: 128px;
+        height: 128px;
+        display: inline-block;
+    }
+    .data {
+        font-size: 2em;
+        display: inline-block;
+        .label {
+            font-weight: bold;
+            font-variant: small-caps;
+        }
+        .value {
+            color: lighten(#000, 25%);
+        }
+    }
 }
