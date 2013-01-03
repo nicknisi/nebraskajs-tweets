@@ -1,0 +1,15 @@
+{
+  "name": "omahajs",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.5",
+    "less-middleware": "*",
+    "hbs": "~2.0.1",
+    "socket.io": "~0.9.13",
+    "ntwitter": "~0.5.0"
+  }
+}
