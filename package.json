@@ -10,6 +10,7 @@
     "less-middleware": "*",
     "hbs": "~2.0.1",
     "socket.io": "~0.9.13",
-    "ntwitter": "~0.5.0"
+    "ntwitter": "~0.5.0",
+    "bower": "~0.6.8"
   }
 }
