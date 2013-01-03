@@ -54,17 +54,19 @@ body {
     .avatar {
         width: 128px;
         height: 128px;
-        display: inline-block;
+        // display: inline-block;
+        float: left;
     }
-    .data {
-        font-size: 2em;
+    table {
+        float: left;
         display: inline-block;
-        .label {
-            font-weight: bold;
-            font-variant: small-caps;
+        width: 200px;
+        tr, td {
+            width: 100%;
         }
-        .value {
-            color: lighten(#000, 25%);
-        }
+    }
+    .footer {
+        clear: both;
+        display: block;
     }
 }

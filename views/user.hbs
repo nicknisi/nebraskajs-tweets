@@ -1,10 +1,33 @@
 <div class="twitter-data">
-    <h1>Say Hello To @{{username}}!</h1>
+    <h1>Say Hello To <a href="https://twitter.com/{{username}}">@{{username}}</a>!</h1>
     <img class="avatar" src="{{img}}"/>
-    <div class="data">
-        <div><span class="label">User Id</span> <span class="value">{{userId}}</span></div>
-        <div><span class="label">Real Name</span> <span class="value">{{name}}</span></div>
-        <div><span class="label">Location</span> <span class="value">{{location}}</span></div>
-        <div><span class="label">Tweets</span> <span class="value">{{tweets}}</span></div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                {{!<th>Key</th>
+                <th>Value</th>}}
+            </tr>
+            <tbody>
+                <tr>
+                    <td>User ID</td>
+                    <td>{{userId}}</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>{{name}}</td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>{{location}}</td>
+                </tr>
+                <tr>
+                    <td>Tweets</td>
+                    <td>{{tweets}}</td>
+                </tr>
+            </tbody>
+        </thead>
+    </table>
+    <div class="footer">
+        <a href="/">Back</a>
     </div>
 </div>
